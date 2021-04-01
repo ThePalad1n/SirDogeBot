@@ -30,9 +30,6 @@ async def on_message(message):
     if message.content.startswith('/sir slur'):
         await message.channel.send('FuCk!')
 
-    if message.content.startswith('/sir is brian gay?'):
-        await message.channel.send('Yes')
-
     if message.content.startswith('/sir inspire'):
       quote = get_quote()
       await message.channel.send(quote)
@@ -41,7 +38,7 @@ async def on_message(message):
       await message.channel.send('Born on 4/1/2021, got a few cmds, but lookin to add memes soon type [/sir help] for the current command list')
 
     if message.content.startswith('/sir help'):
-        await message.channel.send('You can type any of these for a cmd, [speak], [goodboi], [slur], [is brian gay?], [inspire]')
+        await message.channel.send('You can type any of these for a cmd, [speak], [goodboi], [slur], [inspire], [news]')
 
 keep_alive()
 client.run(os.getenv('TOKEN'))
