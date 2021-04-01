@@ -37,5 +37,11 @@ async def on_message(message):
       quote = get_quote()
       await message.channel.send(quote)
 
+    if message.content.startswith('/sir news')
+      await message.channel.send('Born on 4/1/2021, got a few cmds, but lookin to add memes soon')
+
+    if message.content.startswith('/sir help'):
+        await message.channel.send('You can type any of these for a cmd, [speak], [goodboi], [slur], [is brian gay?], [inspire]')
+
 keep_alive()
 client.run(os.getenv('TOKEN'))
