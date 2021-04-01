@@ -37,7 +37,7 @@ async def on_message(message):
       quote = get_quote()
       await message.channel.send(quote)
 
-    if message.content.startswith('/sir news')
+    if message.content.startswith('/sir news'):
       await message.channel.send('Born on 4/1/2021, got a few cmds, but lookin to add memes soon')
 
     if message.content.startswith('/sir help'):
