@@ -37,4 +37,5 @@ async def on_message(message):
       quote = get_quote()
       await message.channel.send(quote)
 
+keep_alive()
 client.run(os.getenv('TOKEN'))
