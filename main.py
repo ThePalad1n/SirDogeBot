@@ -2,6 +2,7 @@ import discord
 import os
 import requests
 import json
+from keep_alive import keep_alive
 
 client = discord.Client()
 
