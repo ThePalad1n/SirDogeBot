@@ -7,7 +7,7 @@ import youtube_dl
 import asyncio
 from keep_alive import keep_alive
 
-#client = discord.Client()
+#a = discord.Client()
 
 intents = discord.Intents().all()
 client = discord.Client(intents=intents)
@@ -22,6 +22,7 @@ def get_quote():
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
+
 
 @client.event
 async def on_message(message):
@@ -87,6 +88,13 @@ class YTDLSource(discord.PCMVolumeTransformer):
         filename = data['title'] if stream else ytdl.prepare_filename(data)
         return filename
 
+@bot.command(name='speak', help='Tells the bot to speak')
+async def speak(ctx):
+  if ctx.message.content.startswith('sir speak'):
+        await ctx.message.channel.send('Hello M8!')
+        return
+        
+
 @bot.command(name='join', help='Tells the bot to join the voice channel')
 async def join(ctx):
     if not ctx.message.author.voice:
@@ -94,7 +102,8 @@ async def join(ctx):
         return
     else:
         channel = ctx.message.author.voice.channel
-    await channel.connect()
+        await channel.connect()
+        
 
 @bot.command(name='leave', help='To make the bot leave the voice channel')
 async def leave(ctx):
