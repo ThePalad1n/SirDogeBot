@@ -1,7 +1,9 @@
 import discord
+from discord.ext import commands,tasks
 import os
 import requests
 import json
+import youtube_dl
 from keep_alive import keep_alive
 
 client = discord.Client()

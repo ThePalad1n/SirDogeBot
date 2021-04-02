@@ -178,8 +178,16 @@ version = "1.6.3"
 idna = ">=2.0"
 multidict = ">=4.0"
 
+[[package]]
+category = "main"
+description = "YouTube video downloader"
+name = "youtube-dl"
+optional = false
+python-versions = "*"
+version = "2021.4.1"
+
 [metadata]
-content-hash = "67179e68f36674eb3800ba17a69b0effefe435e61bc749fad79640b809325a2e"
+content-hash = "38caa1c7a5d5d0e1dc33b98d80d4ce2aea69575191272fb04d28adaa8ce7cde7"
 python-versions = "^3.8"
 
 [metadata.files]
@@ -402,4 +410,8 @@ yarl = [
     {file = "yarl-1.6.3-cp39-cp39-win32.whl", hash = "sha256:5b883e458058f8d6099e4420f0cc2567989032b5f34b271c0827de9f1079a424"},
     {file = "yarl-1.6.3-cp39-cp39-win_amd64.whl", hash = "sha256:4953fb0b4fdb7e08b2f3b3be80a00d28c5c8a2056bb066169de00e6501b986b6"},
     {file = "yarl-1.6.3.tar.gz", hash = "sha256:8a9066529240171b68893d60dca86a763eae2139dd42f42106b03cf4b426bf10"},
+]
+youtube-dl = [
+    {file = "youtube_dl-2021.4.1-py2.py3-none-any.whl", hash = "sha256:efbac0e19accccd36e597749a59b095e60439240c777bf1fa1e80ad00e5073dc"},
+    {file = "youtube_dl-2021.4.1.tar.gz", hash = "sha256:2715ca9fc4cd3c0eafa56cba9dfacc699fa6176ca083e903becaddd108d8db7b"},
 ]
