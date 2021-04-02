@@ -22,31 +22,41 @@ def get_quote():
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
-
-
 @client.event
 async def on_message(message):
     if message.author == client.user:
         return
 
-    if message.content.startswith('sir speak'):
-        await message.channel.send('Hello M8!')
 
-    if message.content.startswith('sir goodboi'):
-        await message.channel.send('Ty!')
+@bot.command(name='speak', help='Tells the bot to speak')
+async def speak(ctx):
+  if ctx.message.content.startswith('sir speak'):
+        await ctx.message.channel.send('Hello M8!')
+        return
 
-    if message.content.startswith('sir slur'):
-        await message.channel.send('FuCk!')
+@bot.command(name='goodboi', help='Reward the bot for a good job')
+async def goodboi(ctx):
+  if ctx.message.content.startswith('sir goodboi'):
+        await ctx.message.channel.send('*Pat Pat*')
+        return
 
-    if message.content.startswith('sir inspire'):
-      quote = get_quote()
-      await message.channel.send(quote)
+@bot.command(name='inspire', help='Tells the bot to send an inspirational quote')
+async def inspire(ctx):
+  if ctx.message.content.startswith('sir inspire'):
+        await ctx.channel.send(get_quote())
+        return
 
-    if message.content.startswith('sir news'):
-      await message.channel.send('Born on 4/1/2021, got a few cmds, but lookin to add memes soon type [/sir help] for the current command list')
+@bot.command(name='news', help='Tells the bot to give you update on his changes')
+async def news(ctx):
+  if ctx.message.content.startswith('sir news'):
+        await ctx.message.channel.send('Born on 4/1/2021, got a few cmds, but lookin to add memes soon. type [sir help] for the current command list.')
+        return
 
-    if message.content.startswith('sir help'):
-        await message.channel.send('You can type any of these for a cmd, [speak], [goodboi], [slur], [inspire], [news]')
+
+
+
+
+
 
 
 
@@ -87,12 +97,6 @@ class YTDLSource(discord.PCMVolumeTransformer):
             data = data['entries'][0]
         filename = data['title'] if stream else ytdl.prepare_filename(data)
         return filename
-
-@bot.command(name='speak', help='Tells the bot to speak')
-async def speak(ctx):
-  if ctx.message.content.startswith('sir speak'):
-        await ctx.message.channel.send('Hello M8!')
-        return
         
 
 @bot.command(name='join', help='Tells the bot to join the voice channel')
