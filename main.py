@@ -1,6 +1,5 @@
 import discord
 from discord.ext import commands
-import youtube_dl
 import os
 import requests
 import json
@@ -43,13 +42,13 @@ async def inspire(ctx):
         await ctx.channel.send(get_quote())
         return
 
-@bot.command(name='celebrate', help='Tells the bot to celebrate')
-async def celebrate(ctx):
-  if ctx.message.content.startswith('sir celebrate'):
-        await ctx.message.channel.send('wip')
+@bot.command(name='c', help='Tells the bot to c')
+async def c(ctx):
+  if ctx.message.content.startswith('sir c'):
+        await ctx.message.channel.send('C o n g r a t s!')
+        await ctx.message.channel.send('<a:ye:814971851485872140>' + '<a:catjam:824878456939610112>'+'<a:beat:814971891969294396>'+
+        '<a:alert:814971914086121472>'+'<a:yee:814971872503529473>')
         return
-
-
 
 @bot.command(name='news', help='Tells the bot to give you update on his changes')
 async def news(ctx):
