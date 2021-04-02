@@ -5,9 +5,9 @@ import requests
 import json
 import youtube_dl
 import asyncio
+from discord.utils import get
+from discord import FFmpegPCMAudio
 from keep_alive import keep_alive
-
-#a = discord.Client()
 
 intents = discord.Intents().all()
 client = discord.Client(intents=intents)
@@ -45,6 +45,14 @@ async def inspire(ctx):
   if ctx.message.content.startswith('sir inspire'):
         await ctx.channel.send(get_quote())
         return
+
+@bot.command(name='celebrate', help='Tells the bot to celebrate')
+async def celebrate(ctx):
+  if ctx.message.content.startswith('sir celebrate'):
+        await ctx.message.channel.send('wip')
+        return
+
+
 
 @bot.command(name='news', help='Tells the bot to give you update on his changes')
 async def news(ctx):
@@ -101,12 +109,15 @@ class YTDLSource(discord.PCMVolumeTransformer):
 
 @bot.command(name='join', help='Tells the bot to join the voice channel')
 async def join(ctx):
-    if not ctx.message.author.voice:
-        await ctx.send("{} is not connected to a voice channel".format(ctx.message.author.name))
+    channel = ctx.message.author.voice.channel
+    if not channel:
+        await ctx.send("You are not connected to a voice channel")
         return
+    voice = get(bot.voice_clients, guild=ctx.guild)
+    if voice and voice.is_connected():
+        await voice.move_to(channel)
     else:
-        channel = ctx.message.author.voice.channel
-        await channel.connect()
+        voice = await channel.connect()
         
 
 @bot.command(name='leave', help='To make the bot leave the voice channel')
@@ -122,12 +133,11 @@ async def leave(ctx):
 @bot.command(name='play', help='To play song')
 async def play(ctx,url):
     try :
-        server = ctx.message.guild
-        voice_channel = server.voice_client
+        voice = get(bot.voice_clients, guild=ctx.guild)
 
         async with ctx.typing():
             filename = await YTDLSource.from_url(url, loop=bot.loop)
-            voice_channel.play(discord.FFmpegPCMAudio(executable="ffmpeg.exe", source=filename))
+            voice.play(discord.FFmpegPCMAudio(executable="ffmpeg.exe", source=filename))
         await ctx.send('**Now playing:** {}'.format(filename))
     except:
         await ctx.send("The bot is not connected to a voice channel.")
