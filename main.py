@@ -4,6 +4,7 @@ import os
 import requests
 import json
 import math
+import urllib
 from keep_alive import keep_alive
 
 intents = discord.Intents().all()
@@ -96,6 +97,64 @@ async def weather(ctx, *, city: str):
     await channel.send(embed=embed)
   else:
       await channel.send("City not found.")
+
+
+
+#imgflippy
+
+username = 'ThePalad1n'
+password = 'AlphaBeta321!'
+
+userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36'
+
+#Fetch the available memes
+data = requests.get('https://api.imgflip.com/get_memes').json()['data']['memes']
+images = [{'name':image['name'],'url':image['url'],'id':image['id']} for image in data]
+
+#List all the memes
+@bot.command(name='memetypes', help='Tells the bot to list all the meme templetes')
+async def memetypes(ctx):
+  if ctx.message.content.startswith('sir memetypes'):
+        await ctx.message.channel.send('Here is the list of available memes : \n')
+        ctr = 1
+        
+        for img in images:
+          a = ctr,img['name']
+          await ctx.message.channel.send(a)
+          ctr = ctr+1
+        return
+
+@bot.command(name='memehelp', help='Tells the bot to explain how to make a meme')
+async def memehelp(ctx):
+  if ctx.message.content.startswith('sir memetypes'):
+        await ctx.message.channel.send('I heard you needed help with making memes : \n')
+        await ctx.message.channel.send('1) first enter the serial number of the meme \n')
+        await ctx.message.channel.send('2) Enter first text: \n')
+        await ctx.message.channel.send('3) Enter second text: \n')
+        await ctx.message.channel.send('Now just type [sir makememe] to get started')
+
+
+@bot.command(name='makememe', help='Tells the bot to give you update on his changes')
+async def makememe(ctx, id: int, text0: str, text1: str):
+  #Fetch the generated meme
+  if ctx.message.content.startswith('sir makememe'):
+        id = id
+        text0 = text0
+        text1 = text1
+        URL = 'https://api.imgflip.com/caption_image'
+        params = {
+          'username':username,
+          'password':password,
+          'template_id':images[id-1]['id'],
+          'text0':text0,
+          'text1':text1
+        }
+        response = requests.get(URL).json()
+        url = response
+        await ctx.message.channel.send('Memeo CompleteO ')
+        {"embeds":[{"image":{"url":url}}]}
+        return
+
 
 
 keep_alive()
