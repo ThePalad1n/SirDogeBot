@@ -44,7 +44,7 @@ async def inspire(ctx):
         await ctx.channel.send(get_quote())
         return
 
-@bot.command(name='c', help='Tells the bot to c')
+@bot.command(name='c', help='Tells the bot to celebrate')
 async def c(ctx):
   if ctx.message.content.startswith('sir c'):
         await ctx.message.channel.send('C o n g r a t s!')
