@@ -164,19 +164,6 @@ async def poll(ctx, *, question):
         emoji = get(ctx.guild.emojis, name=name)
         await m.add_reaction(emoji or name)
 
-#attempting to create a poll cmd work in progress
-'''
-
-
-@bot.command()
-async def poll(ctx, *, question):
-    m = await ctx.send(f"Poll: {question} -{ctx.author}")
-    for name in reactions:
-        emoji = get(ctx.guild.emojis, name=name)
-        await m.add_reaction(emoji or name)
-
-'''
-
 
 #silly celebration command
 @bot.command(name='c', help='A cmd build to celebrate')
