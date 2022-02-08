@@ -57,11 +57,11 @@ async def speak(ctx):
 
 #inside joke with a server memeber
 @bot.command(name='barps', help='Pulls a BARPS')
-async def barps(ctx):
-    if ctx.message.content.startswith('sir barps'):
-        await ctx.message.channel.send('NO NIKHIL!')
-        return
-
+async def barps(ctx,
+               members: commands.Greedy[discord.Member]):
+    slapped = ", ".join(x.name for x in members)
+    await ctx.message.channel.send('NO NIKHIL!')
+    await ctx.send('Nikhil just got slapped by Barps!')
 
 #silly starwars meme cmd
 @bot.command(name='hmp', help='unlimited power meme')
@@ -135,8 +135,11 @@ async def jillamy(ctx):
         await ctx.message.channel.send('<a:alert:814971914086121472>' +
                                        'Go Jillamy Go!!!' +
                                        '<a:alert:814971914086121472>')
+        time.sleep(1)
         await ctx.message.channel.send('one of us')
+        time.sleep(1)
         await ctx.message.channel.send('One Of Us')
+        time.sleep(1)
         await ctx.message.channel.send('ONE OF US')
         return
 
@@ -173,7 +176,6 @@ async def magic8(ctx):
         else:
             await ctx.message.channel.send("Wait how did you do that???")
 
-
 #silly slap cmd
 @bot.command(name="slap", help="sir slap @person, reason for slapping ")
 async def slap(ctx,
@@ -181,8 +183,11 @@ async def slap(ctx,
                *,
                reason='no reason'):
     slapped = ", ".join(x.name for x in members)
-    await ctx.send('{} just got slapped for {}'.format(slapped, reason))
-
+    if (slapped == 'nikheat1#0391'):
+      await ctx.send('No Nikhil')
+      await ctx.send('{} just got slapped by Barps'.format(slapped))
+    else:
+      await ctx.send('{} just got slapped for {}'.format(slapped, reason))
 
 #poll cmd
 reactions = ["👍", "👎"]
