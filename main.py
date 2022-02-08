@@ -150,12 +150,13 @@ async def magic8(ctx):
         else:
             await ctx.message.channel.send("Wait how did you do that???")
 
-
+#silly slap cmd
 @bot.command(name = "slap", help = "sir slap @person, reason for slapping ")
 async def slap(ctx, members: commands.Greedy[discord.Member], *, reason='no reason'):
     slapped = ", ".join(x.name for x in members)
     await ctx.send('{} just got slapped for {}'.format(slapped, reason))
 
+#poll cmd
 reactions = ["👍", "👎"]
 @bot.command(name= "poll", help = "a cmd to create a poll.")
 async def poll(ctx, *, question):
@@ -163,7 +164,6 @@ async def poll(ctx, *, question):
     for name in reactions:
         emoji = get(ctx.guild.emojis, name=name)
         await m.add_reaction(emoji or name)
-
 
 #silly celebration command
 @bot.command(name='c', help='A cmd build to celebrate')
@@ -185,7 +185,7 @@ async def news(ctx):
     if ctx.message.content.startswith('sir news'):
         await ctx.message.channel.send(
             'I am Sir Doge. Born on 2/3/2022, I can now roll dice, got a magic 8 ball, and got a new job at Jillamy. Type [sir help] for the current command list. Oh I can also yell at Nikhil.'
-        )
+          )
         return
 
 
@@ -240,6 +240,95 @@ async def weather(ctx, *, city: str):
         await channel.send(embed=embed)
     else:
         await channel.send("City not found.")
+
+
+
+
+
+#========================================================================
+#Dnd section
+@bot.command(name='d100', help='dnd roll a d100')
+async def d100(ctx):
+    if ctx.message.content.startswith('sir d100'):
+        await ctx.message.channel.send("Rolling D100")
+        value = random.randint(1, 100)
+        await ctx.message.channel.send(
+            "You rolled a % d " % (value))
+        await ctx.message.channel.send("Add modifiers")
+
+@bot.command(name='d20', help='dnd roll a d20')
+async def d20(ctx):
+    if ctx.message.content.startswith('sir d20'):
+        await ctx.message.channel.send("Rolling D20")
+        value = random.randint(1, 20)
+        await ctx.message.channel.send(
+            "You rolled a % d " % (value))
+        await ctx.message.channel.send("Add modifiers")
+
+@bot.command(name='d12', help='dnd roll a d12')
+async def d12(ctx):
+    if ctx.message.content.startswith('sir d12'):
+        await ctx.message.channel.send("Rolling D12")
+        value = random.randint(1, 12)
+        await ctx.message.channel.send(
+            "You rolled a % d " % (value))
+        await ctx.message.channel.send("Add modifiers")
+
+@bot.command(name='d10', help='dnd roll a d10')
+async def d10(ctx):
+    if ctx.message.content.startswith('sir d10'):
+        await ctx.message.channel.send("Rolling D10")
+        value = random.randint(1, 10)
+        await ctx.message.channel.send(
+            "You rolled a % d " % (value))
+        await ctx.message.channel.send("Add modifiers")
+
+@bot.command(name='d8', help='dnd roll a d8')
+async def d8(ctx):
+    if ctx.message.content.startswith('sir d8'):
+        await ctx.message.channel.send("Rolling D8")
+        value = random.randint(1, 8)
+        await ctx.message.channel.send(
+           "You rolled a % d " % (value))
+        await ctx.message.channel.send("Add modifiers")
+
+@bot.command(name='d6', help='dnd roll a d6')
+async def d6(ctx):
+    if ctx.message.content.startswith('sir d6'):
+        await ctx.message.channel.send("Rolling D6")
+        value = random.randint(1, 6)
+        await ctx.message.channel.send(
+            "You rolled a % d " % (value))
+        await ctx.message.channel.send("Add modifiers")
+
+
+@bot.command(name='d4', help='dnd roll a d4')
+async def d4(ctx):
+    if ctx.message.content.startswith('sir d4'):
+        await ctx.message.channel.send("Rolling D4")
+        value = random.randint(1, 4)
+        await ctx.message.channel.send(
+            "You rolled a % d " % (value))
+        await ctx.message.channel.send("Add modifiers")
+
+@bot.command(name='d2', help='dnd roll a d2')
+async def d2(ctx):
+    if ctx.message.content.startswith('sir d2'):
+        await ctx.message.channel.send("Rolling D2")
+        value = random.randint(1, 2)
+        await ctx.message.channel.send(
+            "You rolled a % d " % (value))
+        await ctx.message.channel.send("Add modifiers")
+
+
+
+
+#=========================================================================
+
+
+
+
+
 
 
 #imgflippy
