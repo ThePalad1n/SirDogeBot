@@ -1,8 +1,8 @@
 [tool.poetry]
 name = "sirdogebot"
-version = "0.1.0"
-description = ""
-authors = ["Your Name <you@example.com>"]
+version = "0.1.1"
+description = "A fun little meme project while I am at work"
+authors = ["ThePalad1n"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
