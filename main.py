@@ -321,6 +321,10 @@ async def d2(ctx):
         await ctx.message.channel.send("Add modifiers")
 
 
+#want to add a query for dnd info related to classes and what not.
+#probably better to add a DB for that amount of info
+#could also modify the roles to be dependant of specific users modifiers
+#additionally could simplify with having the max range as a var and take the cmd number
 
 
 #=========================================================================
