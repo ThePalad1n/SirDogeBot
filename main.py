@@ -104,6 +104,13 @@ async def bingbong(ctx):
         await ctx.message.channel.send('Fuck ya Life!')
         return
 
+#silly meme cmd
+@bot.command(name='backflip', help='another meme cmd')
+async def backflip(ctx):
+    if ctx.message.content.startswith('sir backflip'):
+        await ctx.message.channel.send('Dogs dont do backflips')
+        return
+
 
 #silly work command
 @bot.command(name='jillamy', help='The cult')
