@@ -31,20 +31,14 @@ async def on_ready():
     print('Connected to bot: {}'.format(client.user.name))
     print('Bot ID: {}'.format(client.user.id))
 
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-#work in progress
-#
+
 @bot.command()
 async def longcommand(ctx):
   print('We have logged in as {0.user}'.format(client))
-  await client.change_presence(activity=discord.Streaming(
-        name='Runescape', url='https://www.youtube.com/watch?v=dQw4w9WgXcQ'))
-
-  print('Connected to bot: {}'.format(client.user.name))
-  print('Bot ID: {}'.format(client.user.id))
+  await bot.change_presence(activity=discord.Game(name="Dnd 5e"))
   time.sleep(5)
   await ctx.send('Task Complete!')
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 
 
 @client.event
