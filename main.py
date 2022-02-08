@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+from discord.utils import get
 import os
 import requests
 import json
@@ -150,16 +151,30 @@ async def magic8(ctx):
             await ctx.message.channel.send("Wait how did you do that???")
 
 
+@bot.command(name = "slap", help = "sir slap @person, reason for slapping ")
+async def slap(ctx, members: commands.Greedy[discord.Member], *, reason='no reason'):
+    slapped = ", ".join(x.name for x in members)
+    await ctx.send('{} just got slapped for {}'.format(slapped, reason))
+
+reactions = ["👍", "👎"]
+@bot.command(name= "poll", help = "a cmd to create a poll.")
+async def poll(ctx, *, question):
+    m = await ctx.send(f"Poll: {question} -{ctx.author}")
+    for name in reactions:
+        emoji = get(ctx.guild.emojis, name=name)
+        await m.add_reaction(emoji or name)
+
 #attempting to create a poll cmd work in progress
 '''
-@bot.command(help = "a cmd to create a poll.")
-async def poll(ctx, *, question: str):
-    if ctx.message.content.startswith('sir poll'):
-      await ctx.message.channel.send("What are you polling?")
-      question = ctx.message.author
-      message = await ctx.send(f"{question} \nY = Yes**\n**N = No**")
-      await message.add_reaction('N')
-      await message.add_reaction('Y')
+
+
+@bot.command()
+async def poll(ctx, *, question):
+    m = await ctx.send(f"Poll: {question} -{ctx.author}")
+    for name in reactions:
+        emoji = get(ctx.guild.emojis, name=name)
+        await m.add_reaction(emoji or name)
+
 '''
 
 
