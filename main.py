@@ -203,8 +203,6 @@ async def slap(ctx,
 
 #poll cmd
 reactions = ["👍", "👎"]
-
-
 @bot.command(name="poll", help="a cmd to create a poll.")
 async def poll(ctx, *, question):
     m = await ctx.send(f"Poll: {question} -{ctx.author}")
