@@ -69,15 +69,16 @@ async def hmp(ctx):
         await ctx.message.channel.send('UNLIMITED POWER!')
         return
 
+
 #patCount = 0
 #sill cmd for bot reward
 @bot.command(name='goodboi', help='Reward the bot for a good job')
 async def goodboi(ctx):
     #patCount =+ 1
     if ctx.message.content.startswith('sir goodboi'):
-      await ctx.message.channel.send('*Pat Pat*')
-      #await ctx.message.channel.send('Sir Doge has been praised %d times!' % (patCount))
-      return
+        await ctx.message.channel.send('*Pat Pat*')
+        #await ctx.message.channel.send('Sir Doge has been praised %d times!' % (patCount))
+        return
 
 
 #inspiration command from api
@@ -377,9 +378,9 @@ async def query(ctx, s1: str):
 @bot.command(name='plshelp', help='grants dnd api info')
 async def plshelp(ctx):
     await ctx.message.channel.send(
-        "You can search the folling things:\n"
-        "ability-scores, skills, proficiencies, languages, alignment, background, classes, features, races, equipment, spells, feats, monsters.\n"
-        "Follow these with the subcriteria ex: 'ability-scores dex'\n"
+        "You can search the following things:\n"
+        "ability-scores, skills, proficiencies, languages, alignment, background, classes, features, races, equipment-categories, spells, feats, monsters.\n"
+        "Follow these with the subcriteria ex: 'ability-scores/dex'\n"
         "Subclass help will be added soon. For now just follow last entry with /yoursubsearch \n"
     )
 
@@ -455,16 +456,10 @@ async def makememe(ctx, id: int, text0: str, text1: str):
             'text1': text1
         }
         response = requests.request('POST', URL, params=params).json()
-        await ctx.message.channel.send(response)
-        opener = urllib.request.URLopener()
-        await ctx.message.channel.send(opener)
+        r = response.get('data')
+        z = r.get('url')
+        await ctx.message.channel.send(z)
         await ctx.message.channel.send('Memeo CompleteO ')
-        em = discord.Embed(title="Image")
-        em.set_image(url=response["data"][0]["URL"])
-        try:
-            await ctx.message.chennel.send(embed=em)
-        except:
-            await ctx.message.channel.send("Derp")
 
 
 keep_alive()
