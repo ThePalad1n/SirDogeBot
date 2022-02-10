@@ -428,14 +428,14 @@ async def memetypes(ctx):
 @bot.command(name='memehelp',
              help='TBA: Tells the bot to explain how to make a meme')
 async def memehelp(ctx):
-    if ctx.message.content.startswith('sir memetypes'):
+    if ctx.message.content.startswith('sir memehelp'):
         await ctx.message.channel.send(
             'I heard you needed help with making memes : \n')
         await ctx.message.channel.send(
             '1) first enter the serial number of the meme \n')
         await ctx.message.channel.send('2) Enter first text: \n')
         await ctx.message.channel.send('3) Enter second text: \n')
-        await ctx.message.channel.send('Ex: [sir makememe 10 text1 text2')
+        await ctx.message.channel.send('Ex: [sir makememe 10 text1 text2]')
         await ctx.message.channel.send(
             'Now just type [sir makememe] to get started')
 
