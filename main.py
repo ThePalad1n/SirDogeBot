@@ -368,12 +368,12 @@ dndBaseURL = "https://www.dnd5eapi.co/api/"
 
 
 @bot.command(help='grants dnd info')
-async def query(ctx, s1: str):
-    completeDND_url = dndBaseURL + s1 + '/'
+async def query(ctx, s1: str, s2: str, s3: str):
+    completeDND_url = dndBaseURL + s1 + '/' + s2
     response = requests.get(completeDND_url)
     x = response.json()
-    await ctx.message.channel.send(x)
-
+    y = x.get(s3)
+    await ctx.message.channel.send(y)
 
 @bot.command(name='plshelp', help='grants dnd api info')
 async def plshelp(ctx):
