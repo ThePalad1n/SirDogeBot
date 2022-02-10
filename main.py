@@ -7,6 +7,8 @@ import json
 import math
 import urllib
 import random
+from requests import Request, Session
+from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import time
 from keep_alive import keep_alive
 
@@ -383,15 +385,13 @@ async def plshelp(ctx):
     )
 
 
-#want to add a query for dnd info related to classes and what not.
-#probably better to add a DB for that amount of info
 #could also modify the roles to be dependant of specific users modifiers
 #additionally could simplify with having the max range as a var and take the cmd number
 
 #=========================================================================
 
 #imgflippy
-#still a work in progress got to reread the documentation
+
 username = 'ThePalad1n'
 password = 'AlphaBeta321!'
 
@@ -458,6 +458,8 @@ async def makememe(ctx, id: int, text0: str, text1: str):
         z = r.get('url')
         await ctx.message.channel.send(z)
         await ctx.message.channel.send('Memeo CompleteO ')
+
+
 
 
 keep_alive()
