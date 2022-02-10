@@ -33,12 +33,11 @@ async def on_ready():
 
 
 @bot.command()
-async def longcommand(ctx):
-  print('We have logged in as {0.user}'.format(client))
-  await bot.change_presence(activity=discord.Game(name="Dnd 5e"))
-  time.sleep(5)
-  await ctx.send('Task Complete!')
-
+async def pushP(ctx):
+    print('We have logged in as {0.user}'.format(client))
+    await bot.change_presence(activity=discord.Game(name="Halo Infinite"))
+    time.sleep(5)
+    await ctx.send('Task Complete!')
 
 
 @client.event
@@ -57,11 +56,11 @@ async def speak(ctx):
 
 #inside joke with a server memeber
 @bot.command(name='barps', help='Pulls a BARPS')
-async def barps(ctx,
-               members: commands.Greedy[discord.Member]):
+async def barps(ctx, members: commands.Greedy[discord.Member]):
     slapped = ", ".join(x.name for x in members)
     await ctx.message.channel.send('NO NIKHIL!')
     await ctx.send('Nikhil just got slapped by Barps!')
+
 
 #silly starwars meme cmd
 @bot.command(name='hmp', help='unlimited power meme')
@@ -70,13 +69,15 @@ async def hmp(ctx):
         await ctx.message.channel.send('UNLIMITED POWER!')
         return
 
-
+#patCount = 0
 #sill cmd for bot reward
 @bot.command(name='goodboi', help='Reward the bot for a good job')
 async def goodboi(ctx):
+    #patCount =+ 1
     if ctx.message.content.startswith('sir goodboi'):
-        await ctx.message.channel.send('*Pat Pat*')
-        return
+      await ctx.message.channel.send('*Pat Pat*')
+      #await ctx.message.channel.send('Sir Doge has been praised %d times!' % (patCount))
+      return
 
 
 #inspiration command from api
@@ -128,6 +129,14 @@ async def backflip(ctx):
         return
 
 
+#silly meme cmd
+@bot.command(name='mom', help='another meme cmd')
+async def mom(ctx):
+    if ctx.message.content.startswith('sir mom'):
+        await ctx.message.channel.send('Your mom')
+        return
+
+
 #silly work command
 @bot.command(name='jillamy', help='The cult')
 async def jillamy(ctx):
@@ -176,6 +185,7 @@ async def magic8(ctx):
         else:
             await ctx.message.channel.send("Wait how did you do that???")
 
+
 #silly slap cmd
 @bot.command(name="slap", help="sir slap @person, reason for slapping ")
 async def slap(ctx,
@@ -184,10 +194,11 @@ async def slap(ctx,
                reason='no reason'):
     slapped = ", ".join(x.name for x in members)
     if (slapped == 'nikheat1#0391'):
-      await ctx.send('No Nikhil')
-      await ctx.send('{} just got slapped by Barps'.format(slapped))
+        await ctx.send('No Nikhil')
+        await ctx.send('{} just got slapped by Barps'.format(slapped))
     else:
-      await ctx.send('{} just got slapped for {}'.format(slapped, reason))
+        await ctx.send('{} just got slapped for {}'.format(slapped, reason))
+
 
 #poll cmd
 reactions = ["👍", "👎"]
@@ -350,6 +361,27 @@ async def d2(ctx):
         value = random.randint(1, 2)
         await ctx.message.channel.send("You rolled a % d " % (value))
         await ctx.message.channel.send("Add modifiers")
+
+
+dndBaseURL = "https://www.dnd5eapi.co/api/"
+
+
+@bot.command(help='grants dnd info')
+async def query(ctx, s1: str):
+    completeDND_url = dndBaseURL + s1 + '/'
+    response = requests.get(completeDND_url)
+    x = response.json()
+    await ctx.message.channel.send(x)
+
+
+@bot.command(name='plshelp', help='grants dnd api info')
+async def plshelp(ctx):
+    await ctx.message.channel.send(
+        "You can search the folling things:\n"
+        "ability-scores, skills, proficiencies, languages, alignment, background, classes, features, races, equipment, spells, feats, monsters.\n"
+        "Follow these with the subcriteria ex: 'ability-scores dex'\n"
+        "Subclass help will be added soon. For now just follow last entry with /yoursubsearch \n"
+    )
 
 
 #want to add a query for dnd info related to classes and what not.
