@@ -38,7 +38,7 @@ async def on_ready():
 async def pushP(ctx):
     print('We have logged in as {0.user}'.format(client))
     await bot.change_presence(activity=discord.Game(name="Halo Infinite"))
-    time.sleep(5)
+    time.sleep(1)
     await ctx.send('Task Complete!')
 
 
@@ -223,6 +223,13 @@ async def c(ctx):
                                        '<a:beat:814971891969294396>' +
                                        '<a:alert:814971914086121472>' +
                                        '<a:yee:814971872503529473>')
+        return
+
+#silly meme cmd
+@bot.command(name='bagalert', help='Major Bag Alert')
+async def bagalert(ctx):
+    if ctx.message.content.startswith('sir bagalert'):
+        await ctx.message.channel.send('<a:alert:814971914086121472>' + 'Bag Alert'+'💰'+'Major Baaaag Alert' + '<a:alert:814971914086121472>')
         return
 
 
