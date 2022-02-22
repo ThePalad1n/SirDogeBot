@@ -193,31 +193,77 @@ async def magic8(ctx):
 @bot.command(name='blackburn', help='The quotes youve always wanted')
 async def blackburn(ctx):
     if ctx.message.content.startswith('sir blackburn'):
-        value = random.randint(1, 20)
+        value = random.randint(1, 33)
         if (value == 20):
             await ctx.message.channel.send("Im gonna blow up the plane.")
         elif (value == 19):
             await ctx.message.channel.send("Shoulda got her while she was vulnerable.")
-        elif (value == 18 or value == 3):
+        elif (value == 18):
             await ctx.message.channel.send("I quit.")
-        elif (value == 17 or value == 4):
+        elif (value == 17):
             await ctx.message.channel.send("Im gonna shoot up work.")
-        elif (value == 15 or value == 5 or value == 10):
+        elif (value == 15):
             await ctx.message.channel.send("FYI I got dibs on bed.")
-        elif (value == 16 or value == 6):
+        elif (value == 16):
             await ctx.message.channel.send("I loved Gina.")
-        elif (value == 14 or value == 7):
+        elif (value == 14):
             await ctx.message.channel.send(
                 "Ill even call you daddy.")
-        elif (value == 13 or value == 8):
+        elif (value == 13):
             await ctx.message.channel.send(
                 "I mean I will definitely watch a lot of porn tonight but crying in the shower is a gametime decision")
-        elif (value == 12 or value == 9):
+        elif (value == 12):
             await ctx.message.channel.send("if you wanted to stop the stupidity you shoulda told my dad to pull out")
-        elif (value == 11 or value == 2):
+        elif (value == 11):
             await ctx.message.channel.send("I love you")
         elif (value == 1):
             await ctx.message.channel.send("Connor ima steal my girlfriend back")
+        elif (value == 10):
+            await ctx.message.channel.send("Thats ass my guy.")
+        elif (value == 5):
+            await ctx.message.channel.send("Lets go steal MILFs kayaks.")
+        elif (value == 6):
+            await ctx.message.channel.send("I dont need a 401k this is my retirement plan *gunshot*")
+        elif (value == 8):
+            await ctx.message.channel.send("Anyone tryn to play some catan?")
+        elif (value == 7):
+            await ctx.message.channel.send("I am so tired.")
+        elif (value == 4):
+            await ctx.message.channel.send("Who the fuck ate my chicken nuggets")
+        elif (value == 3):
+            await ctx.message.channel.send("Evan you can have all the beer at my house")
+        elif (value == 2):
+            await ctx.message.channel.send("she can, i make sure to send it through the phone")
+        elif (value == 9):
+            await ctx.message.channel.send("kelly wants me")
+        elif (value == 21):
+            await ctx.message.channel.send("youre gonna roast me while im having a shit day then expect a roasting back")
+        elif (value == 22):
+            await ctx.message.channel.send("Im gonna fuck a donkey")
+        elif (value == 23):
+            await ctx.message.channel.send("idk why you expect me to behave normally")
+        elif (value == 24):
+            await ctx.message.channel.send("go home pussy\n boys peep the text chat\n barps is LITERALLY ASKING FOR IT\n MIGHT HAVE KILLED HIM")
+        elif (value == 25):
+            await ctx.message.channel.send("Im talking myself into getting angry.")
+        elif (value == 26):
+            await ctx.message.channel.send("nikhil i got you\n i offer payment plans for maintenance\n pay me in taco bell\n party packs")
+        elif (value == 26):
+            await ctx.message.channel.send("he cornered me in highschool when the group was chillin in valley sqaure\n tried to suck me off for half hour")
+        elif (value == 27):
+            await ctx.message.channel.send("no shot")
+        elif (value == 28):
+            await ctx.message.channel.send("nah not a fan of gays\n unless theyre lesbians\n huge fan of those")
+        elif (value == 29):
+            await ctx.message.channel.send("I need to get alcohol poisioning")
+        elif (value == 30):
+            await ctx.message.channel.send("I AM STIMULATED")
+        elif (value == 31):
+            await ctx.message.channel.send("boys i wanna commit robbery")
+        elif (value == 32):
+            await ctx.message.channel.send("i need sex")
+        elif (value == 33):
+            await ctx.message.channel.send("ill suck you off woody")
         else:
             await ctx.message.channel.send("Wait how did you do that???")
 
