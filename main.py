@@ -189,6 +189,39 @@ async def magic8(ctx):
             await ctx.message.channel.send("Wait how did you do that???")
 
 
+#magic eight ball command. could be compacted with a switch probs
+@bot.command(name='blackburn', help='The quotes youve always wanted')
+async def blackburn(ctx):
+    if ctx.message.content.startswith('sir blackburn'):
+        value = random.randint(1, 20)
+        if (value == 20):
+            await ctx.message.channel.send("Im gonna blow up the plane.")
+        elif (value == 19):
+            await ctx.message.channel.send("Shoulda got her while she was vulnerable.")
+        elif (value == 18 or value == 3):
+            await ctx.message.channel.send("I quit.")
+        elif (value == 17 or value == 4):
+            await ctx.message.channel.send("Im gonna shoot up work.")
+        elif (value == 15 or value == 5 or value == 10):
+            await ctx.message.channel.send("FYI I got dibs on bed.")
+        elif (value == 16 or value == 6):
+            await ctx.message.channel.send("I loved Gina.")
+        elif (value == 14 or value == 7):
+            await ctx.message.channel.send(
+                "Ill even call you daddy.")
+        elif (value == 13 or value == 8):
+            await ctx.message.channel.send(
+                "I mean I will definitely watch a lot of porn tonight but crying in the shower is a gametime decision")
+        elif (value == 12 or value == 9):
+            await ctx.message.channel.send("if you wanted to stop the stupidity you shoulda told my dad to pull out")
+        elif (value == 11 or value == 2):
+            await ctx.message.channel.send("I love you")
+        elif (value == 1):
+            await ctx.message.channel.send("Connor ima steal my girlfriend back")
+        else:
+            await ctx.message.channel.send("Wait how did you do that???")
+
+
 #silly slap cmd
 @bot.command(name="slap", help="sir slap @person, reason for slapping ")
 async def slap(ctx,
