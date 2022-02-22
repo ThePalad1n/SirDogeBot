@@ -23,23 +23,11 @@ def get_quote():
     quote = json_data[0]['q'] + " -" + json_data[0]['a']
     return (quote)
 
-
-@client.event
-async def on_ready():
-    print('We have logged in as {0.user}'.format(client))
-    await client.change_presence(activity=discord.Streaming(
-        name='Runescape', url='https://www.youtube.com/watch?v=dQw4w9WgXcQ'))
-
-    print('Connected to bot: {}'.format(client.user.name))
-    print('Bot ID: {}'.format(client.user.id))
-
-
 @bot.command()
 async def pushP(ctx):
     print('We have logged in as {0.user}'.format(client))
-    await bot.change_presence(activity=discord.Game(name="Halo Infinite"))
-    time.sleep(1)
-    await ctx.send('Task Complete!')
+    await bot.change_presence(activity=discord.Streaming(
+        name='Runescape', url='https://www.youtube.com/watch?v=dQw4w9WgXcQ'))
 
 
 @client.event
